@@ -25,7 +25,7 @@ import 'window_size_class.dart';
 /// // Static (returns compact)
 /// Container(padding: padding.value);
 /// ```
-@immutable
+
 class ResponsiveValue<T> {
   /// Creates a responsive value with the given values per window class.
   ///

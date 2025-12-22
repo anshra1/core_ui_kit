@@ -36,7 +36,7 @@ import 'window_size_class.dart';
 ///   category: TypographyCategory.display,
 /// );
 /// ```
-@immutable
+
 class ResponsiveTextStyle {
   /// Creates a responsive text style.
   ///

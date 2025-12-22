@@ -149,6 +149,39 @@ class ScreenSizeBuilder extends StatelessWidget {
   }
 }
 
+/// A builder widget that rebuilds based on the AVAILABLE width (constraints).
+///
+/// Unlike [ScreenSizeBuilder] (which uses screen width), this widget uses
+/// [LayoutBuilder] to determine the window class based on the space provided
+/// by the parent.
+///
+/// This is ideal for reusable components that might be placed in a sidebar,
+/// a modal, or a split-screen layout.
+class ResponsiveLayoutBuilder extends StatelessWidget {
+  /// Creates a [ResponsiveLayoutBuilder] widget.
+  const ResponsiveLayoutBuilder({
+    required this.builder,
+    super.key,
+    this.breakpoints = const BreakpointConfiguration(),
+  });
+
+  /// Builder function that receives the current [WindowSizeClass].
+  final Widget Function(BuildContext context, WindowSizeClass windowClass) builder;
+
+  /// Optional breakpoint configuration. Defaults to [BreakpointConfiguration.m3].
+  final BreakpointConfiguration breakpoints;
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final windowClass = breakpoints.getWindowSizeClass(constraints.maxWidth);
+        return builder(context, windowClass);
+      },
+    );
+  }
+}
+
 /// Extension on [BuildContext] for convenient access to screen size information.
 extension ScreenSizeContext on BuildContext {
   /// Returns the current [WindowSizeClass] for this context.

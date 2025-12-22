@@ -28,10 +28,7 @@ export 'src/themes/generators/theme_generator.dart';
 // Tokens
 export 'src/themes/tokens/reference_tokens.dart';
 export 'src/themes/tokens/system_tokens.dart';
-// Utils
-export 'src/utils/context_extensions.dart';
-export 'src/utils/date_utils.dart';
-export 'src/utils/string_extensions.dart';
+
 export 'src/widgets/feedback/dialogs/core_dialog.dart';
 export 'src/widgets/feedback/loaders/core_loader.dart';
 export 'src/widgets/feedback/toasts/core_toast.dart';
