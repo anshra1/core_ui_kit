@@ -1,16 +1,7 @@
 library;
 
-export 'src/foundation/app_accessibility.dart';
-export 'src/foundation/app_breakpoints.dart';
-export 'src/foundation/app_curves.dart';
-export 'src/foundation/app_durations.dart';
-export 'src/foundation/app_haptics.dart';
-export 'src/foundation/app_icons.dart';
-export 'src/foundation/app_opacity.dart';
-export 'src/foundation/app_radius.dart';
-export 'src/foundation/app_shadows.dart';
 // Foundation
-export 'src/foundation/app_spacing.dart';
+export 'src/foundation/foundation.dart';
 // Responsive
 export 'src/responsive/breakpoint_configuration.dart';
 export 'src/responsive/font_scaling_configuration.dart';
