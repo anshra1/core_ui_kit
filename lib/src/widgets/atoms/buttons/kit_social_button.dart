@@ -1,4 +1,6 @@
-import 'package:core_ui_kit/src/widgets/buttons/kit_base_button.dart';
+import 'package:core_ui_kit/src/widgets/atoms/buttons/kit_base_button.dart';
+import 'package:core_ui_kit/src/widgets/atoms/buttons/kit_button_state.dart';
+import 'package:core_ui_kit/src/widgets/atoms/buttons/kit_button_tokens.dart';
 import 'package:flutter/material.dart';
 
 enum SocialBrand {
@@ -13,6 +15,7 @@ enum SocialBrand {
 class KitSocialButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final SocialBrand brand;
+  final KitButtonState state;
   final String? text; // Optional override
   final Size? fixedSize;
 
@@ -20,6 +23,7 @@ class KitSocialButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.brand,
+    this.state = KitButtonState.enabled,
     this.text,
     this.fixedSize,
   });
@@ -63,31 +67,72 @@ class KitSocialButton extends StatelessWidget {
         break;
     }
 
-    return KitBaseButton(
-      onPressed: onPressed,
-      backgroundColor: bgColor,
-      foregroundColor: fgColor,
-      borderSide: border,
-      elevation: 1,
-      fixedSize: fixedSize,
-      minimumSize: const Size(double.infinity, 48), // Social buttons usually full width in auth forms
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      borderRadius: BorderRadius.circular(8),
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Icon(iconData, size: 24),
+        return KitBaseButton(
+
+          onPressed: onPressed,
+
+          state: state,
+
+          backgroundColor: bgColor,
+
+          foregroundColor: fgColor,
+
+          borderSide: border,
+
+          elevation: 1,
+
+          fixedSize: fixedSize,
+
+          minimumSize: const Size(double.infinity, 48), // Social buttons usually full width in auth forms
+
+          padding: KitButtonTokens.paddingCompact,
+
+          borderRadius: BorderRadius.circular(KitButtonTokens.radius),
+
+          child: Row(
+
+            children: [
+
+              // Icon on the left
+
+              Icon(iconData, size: 24),
+
+              
+
+              // Centered Text
+
+              Expanded(
+
+                child: Text(
+
+                  text ?? label,
+
+                  textAlign: TextAlign.center,
+
+                  style: const TextStyle(fontWeight: FontWeight.w600),
+
+                  overflow: TextOverflow.ellipsis, // Prevent overflow
+
+                ),
+
+              ),
+
+              
+
+              // Invisible spacer on the right to balance the icon's width
+
+              // ensuring the text is perfectly centered relative to the button
+
+              const SizedBox(width: 24), 
+
+            ],
+
           ),
-          Center(
-            child: Text(
-              text ?? label,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontWeight: FontWeight.w600),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+
+        );
+
+      }
+
+    }
+
+    
