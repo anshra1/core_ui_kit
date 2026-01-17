@@ -3,9 +3,9 @@ library;
 // Foundation
 export 'src/foundation/foundation.dart';
 // Responsive - Core
-export 'src/responsive/breakpoint_configuration.dart';
-export 'src/responsive/screen_size_detector.dart';
-export 'src/responsive/window_size_class.dart';
+export 'src/responsive_layout/breakpoint_configuration.dart';
+export 'src/responsive_layout/screen_size_detector.dart';
+export 'src/responsive_layout/window_size_class.dart';
 // Responsive - Typography
 export 'src/typography/font_scaling_configuration.dart';
 export 'src/typography/responsive_text_style.dart';
